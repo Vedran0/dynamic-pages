@@ -10,11 +10,10 @@
 
   <body>
     <%= render 'layouts/main_navigation' %>
-    <%= @sub_layout %>
-    <% if @sub_layout %>
-      <%= render "#{@sub_layout}" %>
-    <% else %>
-      <%= yield %>
+    <%= @dynamic_nav %>
+    <% if @dynamic_nav %>
+      <%= render "layouts/sub_layouts/sub_layout", page_link: @page_navigation_link %>
     <% end %>
+    <%= yield %>
   </body>
 </html>

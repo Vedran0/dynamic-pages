@@ -21,8 +21,23 @@
     <%= f.text_field :name, id: :page_link_name %>
   </div>
 
-  <% fields_for :document do |ff| %>
-    
+  <%= f.label :submenue %>
+  <%= f.check_box :submenue %>
+
+  <%= f.hidden_field :page_link_id %>
+
+  <%= f.select :resource, PageLink.nested_attributes_options.keys.map {|k| k.to_s.pluralize} %>
+
+  <%= f.fields_for :document, f.object.build_document do |ff| %>
+    <%= ff.label :title %>
+    <%= ff.text_field :title %>
+    <%= ff.label :text %>
+    <%= ff.text_area :text %>
+  <% end %>
+
+  <%= f.fields_for :attachment, f.object.build_document do |ff| %>
+    <%= ff.label :file %>
+    <%= ff.file_field :file %>
   <% end %>
 
   <div class="field">

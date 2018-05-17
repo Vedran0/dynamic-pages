@@ -1,9 +1,5 @@
 module PageLinksHelper
-	def scope_link(link)
-		if link.has_related?
-			"#{request.base_url}/#{@scope}/page_links/#{link.id}"
-		else
-			"#{request.base_url}/#{@scope}/#{link.path}"
-		end
+	def compose_path(link)
+		link_to link.name, [link.scope, link.resource, eval("link.#{link.resource.singularize}.id").to_s].join("/")
 	end
 end

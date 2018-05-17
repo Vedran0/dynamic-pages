@@ -1,9 +1,0 @@
-<div>
-		<ul>
-			<% PageLink.all.where(scope: @scope).each do |link| %>
-				<li><%= link_to link.name.upcase, scope_link(link), class: "" %></li>
-			<% end %>
-			<%= link_to "Add link", "#{request.base_url}/#{@scope}/page_links/new" %>
-		</ul>
-	<%= yield %>
-</div>

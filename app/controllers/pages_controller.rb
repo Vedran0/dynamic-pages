@@ -8,10 +8,9 @@ class PagesController < ApplicationController
   end
 
   def set_layout
-
     @scope = action_name
-    @page_navigation_links = PageLink.where(scope: action_name)
-    @sub_layout = "layouts/sub_layouts/#{action_name}"
+    @page_navigation_link = PageLink.where(scope: action_name).where(root: true).first
+    @dynamic_nav = true
   end
 
 end
