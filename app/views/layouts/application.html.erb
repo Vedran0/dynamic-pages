@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DynamicPages</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render 'layouts/main_navigation' %>
+    <%= @sub_layout %>
+    <% if @sub_layout %>
+      <%= render "#{@sub_layout}" %>
+    <% else %>
+      <%= yield %>
+    <% end %>
+  </body>
+</html>

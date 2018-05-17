@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Scope:</strong>
+  <%= @page_link.scope %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @page_link.name %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @page_link.position %>
+</p>
+
+<%= link_to 'Edit', edit_page_link_path(@page_link) %> |
+<%= link_to 'Back', page_links_path %>

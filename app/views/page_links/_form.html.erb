@@ -1,0 +1,36 @@
+<%= form_with(model: page_link, local: true) do |f| %>
+  <% if page_link.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(page_link.errors.count, "error") %> prohibited this page_link from being saved:</h2>
+
+      <ul>
+      <% page_link.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :scope %>
+    <%= f.hidden_field :scope, id: :page_link_scope %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, id: :page_link_name %>
+  </div>
+
+  <% fields_for :document do |ff| %>
+    
+  <% end %>
+
+  <div class="field">
+    <%#= f.label :position %>
+    <%#= f.number_field :position, id: :page_link_position %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
